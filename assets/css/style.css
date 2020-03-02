@@ -1,0 +1,197 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    outline: none;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+}
+
+.canvas-space {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 600px;
+}
+
+#overlay {
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 100ms;
+    z-index: 2;
+}
+
+#overlay #frameRate {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Courier New, sans-serif;
+    color: #1bcc1b;
+}
+
+.space {
+    position: absolute;
+    top: 600px;
+    left: 0;
+    right: 0;
+    margin-top: 5px;
+}
+
+#gui {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#gui .main {
+    padding: 10px;
+    height: 56px;
+    background-color: black;
+}
+
+#gui .editor {
+    position: relative;
+    padding: 10px;
+    background-color: #202020;
+    border: 10px solid black;
+    border-top: 0;
+}
+
+#gui #commands, #gui .btn {
+    font-size: 14px;
+}
+
+#gui #commands {
+    background-color: #fff;
+    border: 0;
+    padding: 10px 14px;
+    float: left;
+}
+
+#gui .btn {
+    display: inline-block;
+    padding: 10px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 50ms;
+    float: left;
+}
+
+#gui .btn.green {
+    background-color: green;
+}
+#gui .btn.green:hover {
+    background-color: darkgreen;
+}
+#gui .btn.red {
+    background-color: red;
+}
+#gui .btn.red:hover {
+    background-color: darkred;
+}
+#gui .btn.blue {
+    background-color: #0174df;
+}
+#gui .btn.blue:hover {
+    background-color: #005db5;
+}
+
+#gui #editor, #gui #play {
+    margin-left: 15px;
+}
+
+#gui .editor table {
+    border-collapse: inherit;
+    border-spacing: 4px;
+}
+#gui .editor table th {
+    text-align: left;
+}
+#gui .editor table td {
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 200ms;
+}
+#gui .editor table td.active {
+    border-color: green;
+}
+#gui .editor table td:not(.active):hover {
+    border-color: white;
+}
+
+table#forGrounds td {
+    height: 40px;
+    width: 40px;
+}
+table#forGrounds td .inner {
+    height: 40px;
+    width: 40px;
+    margin: 0;
+}
+table#forGrounds td.active .inner {
+    height: 32px;
+    width: 32px;
+    margin: 4px;
+}
+
+table#forGrounds td.selectGround[data-ref="0"] .inner {
+    background-color: #B78D74;
+}
+table#forGrounds td.selectGround[data-ref="1"] .inner {
+    background-color: #715645;
+}
+table#forGrounds td.selectGround[data-ref="2"] .inner {
+    background-color: #B4D7E5;
+}
+table#forGrounds td.selectGround[data-ref="3"] .inner {
+    background-color: #AC58FA;
+}
+
+/* Déselectionner la création de sol */
+table td[data-ref="-1"] {
+    border-radius: 40px;
+    width: 40px;
+}
+table td[data-ref="-1"] .inner {
+    background-color: #000000;
+    border-radius: 40px;
+}
+
+table#forData td {
+    padding: 0;
+}
+table#forData td .inner {
+    padding: 10px 12px;
+    background-color: #000000;
+}
+table#forData td.active {
+    padding: 4px 4px;
+}
+table#forData td.active .inner {
+    padding: 5px 8px;
+}
+
+#playingMapState {
+    position: absolute;
+    left: 280px;
+    top: 40px;
+}
